@@ -72,7 +72,7 @@ class Api::V1::UsersController < Api::BaseController
   end
 
   def password_reset
-    @user = User.where(email: params[:email])
+    @user = User.where(email: params[:email]).first
     if @user.blank?
       respond_to do |format|
         format.json{ render :json => { action: 'password_reset',
