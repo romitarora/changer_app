@@ -1,40 +1,40 @@
-# development:
-#   adapter: mysql2
-#   host: localhost
-#   database: changer_app_dev
-#   pool: 8
-#   username: root
-#   password: Oneclick1@
-
-
-# production:
-#   adapter: mysql2
-#   host: localhost
-#   database: changer_app_dev
-#   pool: 8
-#   username: root
-#   password: Oneclick1@
-
-
-
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  
-
 development:
-  <<: *default
+  adapter: mysql2
   host: localhost
-  username: postgres
-  password: Oneclick1@
-  database: oilmill_db
+  database: changer_app_dev
+  pool: 8
+  username: root
+  # password: Oneclick1@
+  password: admin
+
+production:
+  adapter: mysql2
+  host: localhost
+  database: changer_app_dev
+  pool: 8
+  username: root
+  # password: Oneclick1@
+  password: admin
+
+
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+  
+
+# development:
+#   <<: *default
+#   host: localhost
+#   username: postgres
+#   password: Oneclick1@
+#   database: oilmill_db
 
   
-production:
-  <<: *default
-  host: ec2-23-23-225-12.compute-1.amazonaws.com
-  database: d3nme6jcmtg943
-  username: dmgeacqcqaajrv
-  password: 18bab058f229c4a3ed8ce3326880fc1423941d9e5f2617904f3d0ca369bdb81b
-  
+# production:
+#   <<: *default
+#   host: ec2-23-23-225-12.compute-1.amazonaws.com
+#   database: d3nme6jcmtg943
+#   username: dmgeacqcqaajrv
+#   password: 18bab058f229c4a3ed8ce3326880fc1423941d9e5f2617904f3d0ca369bdb81b
+#   
