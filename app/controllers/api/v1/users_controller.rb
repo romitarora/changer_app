@@ -83,7 +83,7 @@ class Api::V1::UsersController < Api::BaseController
       rand_no = 4.times.map { rand(1..9) }.join.to_i
       newpassword = rand_no.to_s + @user.first_name
       @user.password = newpassword
-      @user.confirm_password = newpassword
+      # @user.confirm_password = newpassword
       if @user.save
         # begin
         #   Notifier.password_reset_instructions(@user,newpassword).deliver             
