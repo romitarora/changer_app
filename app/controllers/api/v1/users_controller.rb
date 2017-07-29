@@ -81,7 +81,7 @@ class Api::V1::UsersController < Api::BaseController
       end
     else
       rand_no = 4.times.map { rand(1..9) }.join.to_i
-      newpassword = k.to_s + @user.first_name
+      newpassword = rand_no.to_s + @user.first_name
       @user.password = newpassword
       @user.confirm_password = newpassword
       if @user.save
