@@ -2,7 +2,7 @@ class Api::V1::UsersController < Api::BaseController
   
   skip_before_action :verify_authenticity_token
   # allow_oauth!   :except => [:create]
-  skip_before_action :authenticate_user!, :only => [:create]
+  skip_before_action :authenticate_user!, :only => [:create, :password_reset]
   def create
     puts user_params[:email]
     @u = User.where(email: user_params[:email]).first
@@ -94,7 +94,7 @@ class Api::V1::UsersController < Api::BaseController
         #               msg: 'Fail to send Notifier.'}}
         #   end
         # end
-        
+
         respond_to do |format|
           format.json{ render :json => { action: 'password_reset',
                         response: 'true',
