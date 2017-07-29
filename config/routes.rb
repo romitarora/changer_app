@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :users do
         collection do
             post :logout
+            post :password_reset
           end
       end
       resources :devices

@@ -71,6 +71,46 @@ class Api::V1::UsersController < Api::BaseController
     end
   end
 
+  def password_reset
+    @user = User.where(email: params[:email])
+    if @user.blank?
+      respond_to do |format|
+        format.json{ render :json => { action: 'password_reset',
+                        response: 'false',
+                        msg: 'Email not exists.'}}
+      end
+    else
+      rand_no = 4.times.map { rand(1..9) }.join.to_i
+      newpassword = k.to_s + @user.first_name
+      @user.password = newpassword
+      @user.confirm_password = newpassword
+      if @user.save
+        # begin
+        #   Notifier.password_reset_instructions(@user,newpassword).deliver             
+        # rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+        #   respond_to do |format|
+        #     format.json{ render :json => { action: 'password_reset',
+        #               response: 'false',
+        #               msg: 'Fail to send Notifier.'}}
+        #   end
+        # end
+        
+        respond_to do |format|
+          format.json{ render :json => { action: 'password_reset',
+                        response: 'true',
+                        msg: 'New password mailed to your email.',
+                        new_password: newpassword}}
+        end
+      else
+        respond_to do |format|
+          format.json{ render :json => { action: 'password_reset',
+                        response: 'false',
+                        msg: 'New password was not generated'}}
+        end
+      end
+    end
+  end
+
   private
     def user_params 
       params.require(:user).permit(:first_name,:last_name, :password, :email,:device_token,:device_type)
