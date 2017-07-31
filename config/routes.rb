@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
   mount_opro_oauth
-  devise_for :users, :controllers => { :passwords => "passwords" }
+  devise_for :users#, :controllers => { :passwords => "passwords" }
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
