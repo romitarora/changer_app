@@ -82,9 +82,9 @@ class Api::V1::UsersController < Api::BaseController
     else
       rand_no = 4.times.map { rand(1..9) }.join.to_i
       newpassword = rand_no.to_s + @user.first_name
-      @user.password = newpassword
-      # @user.confirm_password = newpassword
-      if @user.save
+      # @user.password = newpassword
+      
+      # if @user.save
         begin
           Notifier.password_reset_instructions(@user,newpassword).deliver             
         rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
@@ -101,13 +101,13 @@ class Api::V1::UsersController < Api::BaseController
                         msg: 'New password mailed to your email.',
                         new_password: newpassword}}
         end
-      else
-        respond_to do |format|
-          format.json{ render :json => { action: 'password_reset',
-                        response: 'false',
-                        msg: 'New password was not generated'}}
-        end
-      end
+      # else
+      #   respond_to do |format|
+      #     format.json{ render :json => { action: 'password_reset',
+      #                   response: 'false',
+      #                   msg: 'New password was not generated'}}
+      #   end
+      # end
     end
   end
 
