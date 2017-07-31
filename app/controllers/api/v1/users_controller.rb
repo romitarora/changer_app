@@ -85,15 +85,15 @@ class Api::V1::UsersController < Api::BaseController
       @user.password = newpassword
       # @user.confirm_password = newpassword
       if @user.save
-        # begin
-        #   Notifier.password_reset_instructions(@user,newpassword).deliver             
-        # rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
-        #   respond_to do |format|
-        #     format.json{ render :json => { action: 'password_reset',
-        #               response: 'false',
-        #               msg: 'Fail to send Notifier.'}}
-        #   end
-        # end
+        begin
+          Notifier.password_reset_instructions(@user,newpassword).deliver             
+        rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+          respond_to do |format|
+            format.json{ render :json => { action: 'password_reset',
+                      response: 'false',
+                      msg: 'Fail to send Notifier.'}}
+          end
+        end
 
         respond_to do |format|
           format.json{ render :json => { action: 'password_reset',
