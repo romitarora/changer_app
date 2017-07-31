@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  
+
   mount_opro_oauth
-  devise_for :users
+  devise_for :users, :controllers => { :passwords => "passwords" }
 
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
@@ -21,7 +23,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'thank_you' => 'user#thank_you'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
