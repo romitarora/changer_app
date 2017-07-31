@@ -86,7 +86,8 @@ class Api::V1::UsersController < Api::BaseController
       
       # if @user.save
         begin
-          Notifier.password_reset_instructions(@user,newpassword).deliver             
+          resource = @user.send_reset_password_instructions
+          # Notifier.password_reset_instructions(@user,newpassword).deliver             
         rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
           respond_to do |format|
             format.json{ render :json => { action: 'password_reset',
