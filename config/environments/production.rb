@@ -30,7 +30,7 @@ Rails.application.configure do
 
   config.serve_static_assets = false
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = tru
+  config.assets.compile = true
 
   config.assets.precompile +=  ['*.js','*.js.coffee', '*.css', '*.scss']
 
