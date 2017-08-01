@@ -28,8 +28,10 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  config.serve_static_assets = false
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = tru
+
   config.assets.precompile +=  ['*.js','*.js.coffee', '*.css', '*.scss']
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
