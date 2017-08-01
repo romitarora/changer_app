@@ -4,8 +4,8 @@ development:
   database: changer_app_dev
   pool: 8
   username: root
-  # password: Oneclick1@
-  password: admin
+  password: Oneclick1@
+  # password: admin
 
 production:
   adapter: mysql2
