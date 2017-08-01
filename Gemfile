@@ -17,7 +17,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'opro'
 
-gem 'twitter-bootstrap-rails'
 gem 'devise','4.3.0'
 
 # Use jquery as the JavaScript library
