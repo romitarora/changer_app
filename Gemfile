@@ -19,10 +19,10 @@ gem 'opro'
 
 gem 'devise','4.3.0'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '3.0.2.1'
 gem "font-awesome-rails"
 
-gem 'sass-rails'
+gem 'sass-rails', '>= 3.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
