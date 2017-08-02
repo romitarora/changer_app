@@ -21,8 +21,10 @@ gem 'devise','4.3.0'
 
 gem "font-awesome-rails"
 
+
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
