@@ -24,7 +24,7 @@ class Api::V1::PlaysController < ApplicationController
       render :json => { action: 'play_list',
                               response: 'true',
                               msg: 'Play list was get Successfully!',
-                              devices: @play
+                              plays: @play
                               }
     else
       render :json => { action: 'play_list',

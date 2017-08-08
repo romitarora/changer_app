@@ -19,7 +19,7 @@ class Api::V1::DevicesController < ApplicationController
     end
   end
   def index
-    @device = Device.all
+    @device = Device.here(user_id: params[:user_id])
     if !@device.blank?
       render :json => { action: 'device_list',
                               response: 'true',
