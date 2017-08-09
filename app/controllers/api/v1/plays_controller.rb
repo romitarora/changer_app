@@ -46,7 +46,7 @@ class Api::V1::PlaysController < ApplicationController
     else
       render :json => { action: 'play_update',
                               response: 'false',
-                              msg: 'Play was not updated'
+                              msg: 'Play was not updated.'
                               }
     end
   end
