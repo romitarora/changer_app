@@ -41,7 +41,7 @@ class Api::V1::PlaysController < ApplicationController
       render :json => { action: 'play_update',
                               response: 'true',
                               msg: 'Play was updated Successfully!',
-                              plays: @play
+                              play: @play
                               }
     else
       render :json => { action: 'play_update',
